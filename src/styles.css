@@ -1,0 +1,129 @@
+/* Josh Comeau CSS Reset */
+
+
+/* 1. Use a more-intuitive box-sizing model */
+*, *::before, *::after {
+  box-sizing: border-box;
+ }
+ 
+ 
+ /* 2. Remove default margin */
+ * {
+  margin: 0;
+ }
+ 
+ 
+ body {
+  /* 3. Add accessible line-height */
+  line-height: 1.5;
+  /* 4. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+ }
+ 
+ 
+ /* 5. Improve media defaults */
+ img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+ }
+ 
+ 
+ /* 6. Inherit fonts for form controls */
+ input, button, textarea, select {
+  font: inherit;
+ }
+ 
+ 
+ /* 7. Avoid text overflows */
+ p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+ }
+ 
+ 
+ /* 8. Improve line wrapping */
+ p {
+  text-wrap: pretty;
+ }
+ h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+ }
+ 
+ 
+ /*
+  9. Create a root stacking context
+ */
+ #root, #__next {
+  isolation: isolate;
+ }
+ 
+ 
+ /* *************************************** SIDEBAR ******************************************** */
+ 
+
+.side-container, .projects, .projects-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo, .projects > p {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+ 
+ .content {
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-columns: 1fr 3fr;
+  height: 100vh;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+ }
+ 
+ 
+ .side-container {
+  background-color: #008080;
+  padding: 2rem 2rem;
+  gap: 2rem;
+  color: black;
+ }
+ 
+ 
+ .logo {
+  font-size: 1.6rem;
+  font-weight: bold;
+ }
+ 
+ 
+ .add-item > div {
+  display: flex;
+  align-items: center;
+  margin-top: 0.5rem;
+  gap: 0.6rem;
+  font-size: 1.1rem;
+ }
+ 
+ 
+ .add-project, .add-task {
+  color: #ff7c48;
+ }
+ 
+ 
+ .projects {
+  gap: 0.8rem;
+ }
+ 
+ 
+ .projects > p {
+  font-size: 1.4rem;
+  font-weight: 600;
+ }
+ 
+ 
+ .projects-list {
+  gap: 0.6rem;
+  font-size: 1.1rem;
+ }
+ 
+ 
+ .main-container {
+  background-color: #faf3dd ;
+ }
+ 
