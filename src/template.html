@@ -50,6 +50,50 @@
     <div class="main-container">
       <p></p>
     </div>
+
+    <dialog id="add-project-dialog" class="add-project-class">
+      <form action="" method="dialog" id="add-project-form">
+        <div>
+          <label for="project-title" class="project-input-label">What do you plan to accomplish?</label>
+          <input type="text" id="project-title" name="title-of-project" placeholder="Kitchen Remodelling" class="project-input" required>
+        </div>
+
+        <div class="add-project-buttons">
+          <button type="submit">Let's Do it!</button>
+          <button id="project-dialog-close">Never mind</button>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog id="add-task-dialog" class="add-task-class" >
+      <form action="" method="dialog" id="add-task-form">
+        <div>
+          <label for="task-title" class="task-input-label">Name your goal</label>
+          <input type="text" id="task-title" name="title-of-task" placeholder="Go to the gym" required>
+        </div>
+
+        <div>
+          <label for="task-description" class="task-input-label">Notes for self</label>
+          <textarea name="description-of-task" id="task-description" placeholder="Get up at 7am" rows="5" cols="30"></textarea>
+          <!-- <input type="text" id="task-description" name="description-of-task" placeholder="Get up at 7am"> -->
+        </div>
+
+        <div>
+          <label for="task-date" class="task-input-label">Due Date</label>
+          <input type="text" id="task-date" name="dueDate-of-task" placeholder="05-02-2025" pattern="(0[1-9]|1[1,2])(\/|-)(0[1-9]|[12][0-9]|3[01])(\/|-)(19|20)\d{2}">
+        </div>
+
+        <div>
+          <label for="task-priority" class="task-input-label">Priority - P1 or P2</label>
+          <input type="text" id="task-priority" name="priority-of-task" placeholder="P1" pattern="/p[12]/ig">
+        </div>
+
+        <div class="add-project-buttons">
+          <button type="submit">Let's Go!</button>
+          <button id="project-dialog-close">Maybe Later</button>
+        </div>
+      </form>
+    </dialog>
   </div>
 </body>
 </html>
