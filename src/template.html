@@ -7,18 +7,18 @@
 </head>
 <body>
   <div id="main" class="content">
-    <div class="side-container">
+    <!-- <div class="side-container">
       <div class="logo">
         <p>My ToDo List</p>
       </div>
       <div class="add-item">
-        <div class="add-project">
+        <div class="add-button">
           <div>
             <svg xmlns="http://www.w3.org/2000/svg" height="25" width="25" viewBox="0 0 24 24"><title>plus-circle</title><path d="M17,13H13V17H11V13H7V11H11V7H13V11H17M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" fill="#ff7c48"/></svg>
           </div>
           <p>Add Project</p>
         </div>
-        <div class="add-task">
+        <div class="add-button">
           <div>
             <svg xmlns="http://www.w3.org/2000/svg" height="25" width="25" viewBox="0 0 24 24"><title>plus-circle</title><path d="M17,13H13V17H11V13H7V11H11V7H13V11H17M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" fill="#ff7c48" /></svg>
           </div>
@@ -48,8 +48,73 @@
       </div>
     </div>
     <div class="main-container">
-      <p></p>
-    </div>
+      <div class="main-cont-header">
+        <p>Today</p>
+      </div>
+
+      <div class="tasks-container">
+        <div class="task-container">
+          <div class="task-content">
+            <input type="checkbox">
+            <div class="task-info">
+              <p>Replace the RangeRover Solenoid</p>
+              <p class="date">Get solenoid from a JLR dealership and replace it in school</p>
+              <p class="date">11-09-2025</p>
+            </div>
+          </div>
+          <div class="edit-content">
+            <svg xmlns="http://www.w3.org/2000/svg" height="22" width="22" viewBox="0 0 24 24"><title>file-edit-outline</title><path d="M10 20H6V4H13V9H18V12.1L20 10.1V8L14 2H6C4.9 2 4 2.9 4 4V20C4 21.1 4.9 22 6 22H10V20M20.2 13C20.3 13 20.5 13.1 20.6 13.2L21.9 14.5C22.1 14.7 22.1 15.1 21.9 15.3L20.9 16.3L18.8 14.2L19.8 13.2C19.9 13.1 20 13 20.2 13M20.2 16.9L14.1 23H12V20.9L18.1 14.8L20.2 16.9Z" /></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" height="22" width="22" viewBox="0 0 24 24"><title>flag</title><path d="M14.4,6L14,4H5V21H7V14H12.6L13,16H20V6H14.4Z" fill="red"/></svg>
+          </div>
+        </div> -->
+
+        <!-- <div class="task-container">
+          <div class="task-content">
+            <input type="checkbox">
+            <div class="task-info">
+              <p>Finish the Odin Course</p>
+              <p class="date">11-09-2025</p>
+            </div>
+          </div>
+          <div class="edit-content">
+            <svg xmlns="http://www.w3.org/2000/svg" height="22" width="22" viewBox="0 0 24 24"><title>file-edit-outline</title><path d="M10 20H6V4H13V9H18V12.1L20 10.1V8L14 2H6C4.9 2 4 2.9 4 4V20C4 21.1 4.9 22 6 22H10V20M20.2 13C20.3 13 20.5 13.1 20.6 13.2L21.9 14.5C22.1 14.7 22.1 15.1 21.9 15.3L20.9 16.3L18.8 14.2L19.8 13.2C19.9 13.1 20 13 20.2 13M20.2 16.9L14.1 23H12V20.9L18.1 14.8L20.2 16.9Z" /></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" height="22" width="22" viewBox="0 0 24 24"><title>flag</title><path d="M14.4,6L14,4H5V21H7V14H12.6L13,16H20V6H14.4Z" fill="red"/></svg>
+          </div>
+        </div> -->
+
+        <!-- <div class="edit-task-container">
+          <p class="task-header">Finish the Odin Course</p>
+          <div class="edit-container">
+            <form action="">
+              <div>
+                <label for="task-title">Task Title</label>
+                <input type="text" id="task-title" name="title-of-task" required>
+              </div>
+      
+              <div>
+                <label for="task-description">Notes for self</label>
+                <textarea name="description-of-task" id="task-description" rows="3" cols="30"></textarea>
+              </div>
+      
+              <div>
+                <label for="task-date">Due Date</label>
+                <input type="text" id="task-date" name="dueDate-of-task" placeholder="05-02-2025" pattern="(0[1-9]|1[1,2])(\/|-)(0[1-9]|[12][0-9]|3[01])(\/|-)(19|20)\d{2}">
+              </div>
+      
+              <div>
+                <label for="task-priority">Priority - P1</label>
+                <input type="text" id="task-priority" name="priority-of-task" placeholder="P1" pattern="/p1/ig">
+              </div>
+      
+              <div class="add-project-buttons">
+                <button type="submit">Done</button>
+                <button id="project-dialog-close">Cancel</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div> -->
 
     <dialog id="add-project-dialog" class="add-project-class">
       <form action="" method="dialog" id="add-project-form">
@@ -75,7 +140,7 @@
         <div>
           <label for="task-description" class="task-input-label">Notes for self</label>
           <textarea name="description-of-task" id="task-description" placeholder="Get up at 7am" rows="5" cols="30"></textarea>
-          <!-- <input type="text" id="task-description" name="description-of-task" placeholder="Get up at 7am"> -->
+          <input type="text" id="task-description" name="description-of-task" placeholder="Get up at 7am">
         </div>
 
         <div>
@@ -84,8 +149,8 @@
         </div>
 
         <div>
-          <label for="task-priority" class="task-input-label">Priority - P1 or P2</label>
-          <input type="text" id="task-priority" name="priority-of-task" placeholder="P1" pattern="/p[12]/ig">
+          <label for="task-priority" class="task-input-label">Priority - P1</label>
+          <input type="text" id="task-priority" name="priority-of-task" placeholder="P1" pattern="/p1/ig">
         </div>
 
         <div class="add-project-buttons">

@@ -65,7 +65,7 @@
   flex-direction: column;
 }
 
-.logo, .projects > p {
+.logo, .projects > p, .main-cont-header {
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
  
@@ -100,7 +100,7 @@
 }
  
  
-.add-project, .add-task {
+.add-button {
   color: #ff7c48;
 }
  
@@ -122,10 +122,77 @@
 }
  
  
+
+
+/* *************************************** Main Container ******************************************** */
+
 .main-container {
   background-color: #faf3dd ;
+  padding: 4rem;
+} 
+
+.main-cont-header {
+  font-size: 2rem;
+  color: black;
+  font-weight: bold;
 }
- 
+
+.tasks-container {
+  margin-top: 2rem;
+  font-size: 1.1rem;
+  width: 45vw;
+}
+
+.task-container {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.task-content {
+  display: flex;
+  gap: 1rem;
+}
+
+input[type="checkbox"] {
+  width: 1rem;
+}
+
+.date {
+  font-size: 0.9rem;
+  color: gray;
+}
+
+.edit-content {
+  display: flex;
+  gap: 5px;
+  margin-top: 4px;
+}
+
+/* *** Edit Container *** */
+
+.edit-task-container {
+  padding-left: 2rem;
+}
+
+.task-header {
+  background-color: #4682B4;  /* #fff0c8 */
+  padding: 0.5rem 5px;
+  border: 2px solid rgb(144, 144, 144);
+}
+
+.edit-container {
+  padding: 1rem;
+  background-color: #008080;
+}
+
+.edit-container > form > div {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 1fr 3fr;
+  margin-bottom: 1rem;
+}
+
 /* *************************************** Dialogs ******************************************** */
 
 .add-project-class, .add-task-class {
@@ -169,6 +236,7 @@ input {
   width: 100%;
   height: 2.2rem;
   background: #faf3dd;
+  border: none;
 }
 
 textarea {
