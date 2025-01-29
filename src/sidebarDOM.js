@@ -98,6 +98,9 @@ export function renderSidebar (projects, tasks) {
       const allTasksText = document.createElement('p');
       allTasksText.textContent = 'All Tasks';
       allTasksBtn.appendChild(allTasksText);
+      allTasksBtn.addEventListener('click', () => {
+        renderMainContainer().getAllTasksDisplay(tasks);
+      })
       firstSetOfButtons.appendChild(allTasksBtn);
     }
   }
