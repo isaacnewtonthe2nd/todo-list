@@ -207,14 +207,18 @@ input[type="checkbox"] {
   margin-bottom: 1rem;
 }
 
-.add-task-div {
-  font-size: 1.3rem;
+.add-task-div, .project-delete-div {
+  font-size: 1.1rem;
   font-weight: 400;
   display: flex;
   align-items: center;
   gap: 1rem;
   padding-left: 1rem;
-  margin-top: 2rem;
+  margin-top: 3rem;
+}
+
+.project-delete-div {
+  margin-top: 1rem;
 }
 
 /* *************************************** Dialogs ******************************************** */

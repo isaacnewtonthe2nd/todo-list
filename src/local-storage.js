@@ -19,3 +19,14 @@ export function TaskLocalStorage (value) {
 
   return { getTasks }
 }
+
+export function TodayTasksLocalStorage (value) {
+  const todayTasksString = JSON.stringify(value);
+  localStorage.setItem("todayTasks", todayTasksString);
+
+  const getTodayTasks = () => {
+    return JSON.parse(localStorage.getItem("todayTasks"));
+  }
+
+  return { getTodayTasks }
+}

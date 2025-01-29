@@ -1,8 +1,12 @@
 import { Task } from "./task";
-import { ProjectLocalStorage, TaskLocalStorage } from "./local-storage";
+import { ProjectLocalStorage, TaskLocalStorage, TodayTasksLocalStorage } from "./local-storage";
+import { format } from "date-fns";
 
 export const projects = [];
 export const tasks = [];
+const todayTasks = [];
+filterOldTasks();
+checkTodayTasks();
 
 export class Project {
   constructor (title) {
@@ -42,4 +46,22 @@ export function addProject (title) {
 export function removeProject (index) {
   projects.splice(index, 1);
   ProjectLocalStorage(projects);
+}
+
+function checkTodayTasks () {
+  for (let i = 0; i < tasks.length; i++) {
+    if (format (new Date(), 'PPPP') === format (new Date(tasks[i].dueDate), 'PPPP')) {
+      todayTasks.push(tasks[i]);
+    }
+  }
+  TodayTasksLocalStorage(todayTasks);
+}
+
+function filterOldTasks () {
+  for (let i = 0; i < todayTasks.length; i++) {
+    if (format (new Date(), 'PPPP') !== format (new Date(todayTasks[i].dueDate), 'PPPP')) {
+      todayTasks.splice(i, 1);
+    }
+  }
+  TodayTasksLocalStorage(todayTasks);
 }

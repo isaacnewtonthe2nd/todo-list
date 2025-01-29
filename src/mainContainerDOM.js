@@ -19,7 +19,7 @@ export function renderMainContainer () {
     taskDialog.close();
   })
 
-  
+
   // T O D A Y   B U T T O N   D I S P L A Y
   const getTodayDisplay = (taskArr) => {  
     mainContainer.textContent = '';
@@ -82,11 +82,6 @@ export function renderMainContainer () {
       })
 
       editContent.appendChild(editIcon);
-
-      const deleteIcon = document.createElement('div');
-      deleteIcon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" height="22" width="22" viewBox="0 0 24 24"><title>trash-can-outline</title><path d="M9,3V4H4V6H5V19A2,2 0 0,0 7,21H17A2,2 0 0,0 19,19V6H20V4H15V3H9M7,6H17V19H7V6M9,8V17H11V8H9M13,8V17H15V8H13Z" /></svg>`;
-      deleteIcon.classList.add('icon');
-      editContent.appendChild(deleteIcon);
 
       if (taskArr[i].priority === 'p1' || taskArr[i].priority === 'P1') {
         const priorityIcon = document.createElement('div');
@@ -259,14 +254,26 @@ export function renderMainContainer () {
     addTaskDiv.classList.add('add-task-div');
 
     const addIcon = document.createElement('div');
-    addIcon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" height="35" width="35" viewBox="0 0 24 24"><title>plus</title><path d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" fill="#ff7c48" /></svg>`;
+    addIcon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" height="30" width="30" viewBox="0 0 24 24"><title>plus</title><path d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" fill="#ff7c48" /></svg>`;
     addTaskDiv.appendChild(addIcon);
 
     const addTaskText = document.createElement('p');
     addTaskText.textContent = 'Add Task';
     addTaskDiv.appendChild(addTaskText);
-
     mainContainer.appendChild(addTaskDiv);
+
+    const projectDeleteButtonDiv = document.createElement('div');
+    projectDeleteButtonDiv.classList.add('project-delete-div');
+
+    const projectDeleteIcon = document.createElement('div');
+    projectDeleteIcon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" height="28" width="28" viewBox="0 0 24 24"><title>trash-can-outline</title><path d="M9,3V4H4V6H5V19A2,2 0 0,0 7,21H17A2,2 0 0,0 19,19V6H20V4H15V3H9M7,6H17V19H7V6M9,8V17H11V8H9M13,8V17H15V8H13Z" fill="#ff7c48" /></svg>`;
+    projectDeleteButtonDiv.appendChild(projectDeleteIcon);
+
+    const projectDeleteText = document.createElement('p');
+    projectDeleteText.textContent = 'Delete project';
+    projectDeleteButtonDiv.appendChild(projectDeleteText);
+    mainContainer.appendChild(projectDeleteButtonDiv);
+
   }
 
   main.appendChild(mainContainer);

@@ -1,5 +1,7 @@
-import { tasks } from "./project";
-import { TaskLocalStorage } from "./local-storage";
+import { tasks, projects } from "./project";
+import { TaskLocalStorage, ProjectLocalStorage } from "./local-storage";
+
+
 
 export class Task {
   constructor (title, description, dueDate, priority) {
@@ -41,11 +43,15 @@ export function addTask (title, description = '', dueDate = '', priority = '') {
 
 
 export function removeTask (index) {
-  for (let i = 0; i < tasks.length; i++) {
-    const currentTask = this.taskArr[index];
-    if (currentTask.title === tasks[i].title) {
-      tasks.splice(i, 1);
+  tasks.splice(index, 1);
+
+  for (let i = 0; i < projects.length; i++) {
+    for (let j = 0; j < projects[i].length; i++) {
+      if (projects[i][j].title === tasks[index].title) {
+        projects[i].splice(j, 1);
+      }
     }
   }
   TaskLocalStorage(tasks);
+  ProjectLocalStorage(projects);
 }
