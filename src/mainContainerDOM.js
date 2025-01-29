@@ -53,8 +53,8 @@ export function renderMainContainer () {
       const taskTitle = document.createElement('p');
       taskTitle.textContent = taskArr[i].title;
       taskInfo.appendChild(taskTitle);
+      const taskDescription = document.createElement('p');
       if (taskArr[i].description !== '') {
-        const taskDescription = document.createElement('p');
         taskDescription.textContent = taskArr[i].description;
         taskDescription.classList.add('date');
         taskInfo.appendChild(taskDescription);
@@ -65,6 +65,12 @@ export function renderMainContainer () {
       taskInfo.appendChild(taskDate);
       taskContent.appendChild(taskInfo);
       taskContainer.appendChild(taskContent);
+
+      taskCheckbox.addEventListener('change', () => {
+        taskContent.classList.toggle('completed');
+        taskDescription.classList.toggle('completed');
+        taskDate.classList.toggle('completed');
+      })
 
       //Lets You Edit the Task Content
       const editContent = document.createElement('div');
@@ -128,8 +134,8 @@ export function renderMainContainer () {
       const taskTitle = document.createElement('p');
       taskTitle.textContent = allTasksArr[i].title;
       taskInfo.appendChild(taskTitle);
+      const taskDescription = document.createElement('p');
       if (allTasksArr[i].description !== '') {
-        const taskDescription = document.createElement('p');
         taskDescription.textContent = allTasksArr[i].description;
         taskDescription.classList.add('date');
         taskInfo.appendChild(taskDescription);
@@ -140,6 +146,12 @@ export function renderMainContainer () {
       taskInfo.appendChild(taskDate);
       taskContent.appendChild(taskInfo);
       taskContainer.appendChild(taskContent);
+
+      taskCheckbox.addEventListener('change', () => {
+        taskContent.classList.toggle('completed');
+        taskDescription.classList.toggle('completed');
+        taskDate.classList.toggle('completed');
+      })
 
       //Lets You Edit the Task Content
       const editContent = document.createElement('div');
@@ -206,8 +218,8 @@ export function renderMainContainer () {
       const taskTitle = document.createElement('p');
       taskTitle.textContent = project.taskArr[i].title;
       taskInfo.appendChild(taskTitle);
+      const taskDescription = document.createElement('p');
       if (project.taskArr[i].description !== '') {
-        const taskDescription = document.createElement('p');
         taskDescription.textContent = project.taskArr[i].description;
         taskDescription.classList.add('date');
         taskInfo.appendChild(taskDescription);
@@ -218,6 +230,12 @@ export function renderMainContainer () {
       taskInfo.appendChild(taskDate);
       taskContent.appendChild(taskInfo);
       taskContainer.appendChild(taskContent);
+
+      taskCheckbox.addEventListener('change', () => {
+        taskContent.classList.toggle('completed');
+        taskDescription.classList.toggle('completed');
+        taskDate.classList.toggle('completed');
+      })
 
       //Lets You Edit the Task Content
       const editContent = document.createElement('div');

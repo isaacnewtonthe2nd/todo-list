@@ -221,6 +221,10 @@ input[type="checkbox"] {
   margin-top: 1rem;
 }
 
+.completed {
+  color: rgb(186, 180, 180);
+}
+
 /* *************************************** Dialogs ******************************************** */
 
 .add-project-class, .add-task-class {
