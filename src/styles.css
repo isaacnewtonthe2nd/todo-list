@@ -58,7 +58,6 @@
  
  
 /* *************************************** SIDEBAR ******************************************** */
- 
 
 .side-container, .projects, .projects-list {
   display: flex;
@@ -90,6 +89,10 @@
   font-size: 1.6rem;
   font-weight: bold;
 }
+
+.add-item {
+  width: 10vw;
+}
  
 .add-item > div {
   display: flex;
@@ -102,6 +105,11 @@
  
 .add-button {
   color: #ff7c48;
+  cursor: pointer;
+}
+
+.today, .all-tasks {
+  cursor: pointer;
 }
  
  
@@ -119,6 +127,7 @@
 .projects-list {
   gap: 0.6rem;
   font-size: 1.1rem;
+  cursor: pointer;
 }
  
  
@@ -156,6 +165,7 @@
 
 input[type="checkbox"] {
   width: 1rem;
+  cursor: pointer;
 }
 
 .date {
@@ -167,6 +177,10 @@ input[type="checkbox"] {
   display: flex;
   gap: 5px;
   margin-top: 4px;
+}
+
+.icon {
+  cursor: pointer;
 }
 
 /* *** Edit Container *** */
@@ -254,6 +268,7 @@ button {
   color: #faf3dd;
   border: 2px solid #faf3dd;
   width: 7rem;
+  cursor: pointer;
 }
 
 

@@ -7,6 +7,8 @@
 </head>
 <body>
   <div id="main" class="content">
+    <div id="side-cont" class="side-container"></div>
+    <div id="main-cont" class="main-container"></div>
     <!-- <div class="side-container">
       <div class="logo">
         <p>My ToDo List</p>
@@ -130,7 +132,7 @@
       </form>
     </dialog>
 
-    <dialog id="add-task-dialog" class="add-task-class" >
+    <dialog id="add-task-dialog" class="add-task-class">
       <form action="" method="dialog" id="add-task-form">
         <div>
           <label for="task-title" class="task-input-label">Name your goal</label>
@@ -140,12 +142,11 @@
         <div>
           <label for="task-description" class="task-input-label">Notes for self</label>
           <textarea name="description-of-task" id="task-description" placeholder="Get up at 7am" rows="5" cols="30"></textarea>
-          <input type="text" id="task-description" name="description-of-task" placeholder="Get up at 7am">
         </div>
 
         <div>
           <label for="task-date" class="task-input-label">Due Date</label>
-          <input type="text" id="task-date" name="dueDate-of-task" placeholder="05-02-2025" pattern="(0[1-9]|1[1,2])(\/|-)(0[1-9]|[12][0-9]|3[01])(\/|-)(19|20)\d{2}">
+          <input type="text" id="task-date" name="dueDate-of-task" placeholder="05-02-2025" pattern="(0[1-9]|1[1,2])(\/|-)(0[1-9]|[12][0-9]|3[01])(\/|-)(19|20)\d{2}" required>
         </div>
 
         <div>
@@ -153,9 +154,9 @@
           <input type="text" id="task-priority" name="priority-of-task" placeholder="P1" pattern="/p1/ig">
         </div>
 
-        <div class="add-project-buttons">
+        <div class="add-task-buttons">
           <button type="submit">Let's Go!</button>
-          <button id="project-dialog-close">Maybe Later</button>
+          <button id="task-dialog-close">Maybe Later</button>
         </div>
       </form>
     </dialog>
