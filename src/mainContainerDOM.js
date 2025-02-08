@@ -300,11 +300,11 @@ export function renderMainContainer () {
       taskCheckbox.addEventListener('change', () => {
         if (project.taskArr[i].checked == false) {
           project.taskArr[i].checked = true;
-          renderMainContainer().getProjectDisplay(project);
+          renderMainContainer().getProjectDisplay(inputProjects, project, index);
           localStorage.setItem("projects", JSON.stringify(inputProjects));
         } else {
           project.taskArr[i].checked = false;
-          renderMainContainer().getAllTasksDisplay(project);
+          renderMainContainer().getProjectDisplay(inputProjects, project, index);
           localStorage.setItem("projects", JSON.stringify(inputProjects));
         }
       })
