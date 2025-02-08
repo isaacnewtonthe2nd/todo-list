@@ -5,7 +5,11 @@ import { renderMainContainer } from "./mainContainerDOM";
 import { renderDialogForm, editTaskDialog } from "./dialogModals";
 
 
-export const projects = JSON.parse(localStorage.getItem("projects"));
+if (!localStorage.getItem("projects")) {
+  localStorage.setItem("projects", JSON.stringify([]));
+}
+
+export let projects = JSON.parse(localStorage.getItem("projects"));
 
 
 renderSidebar(projects);
@@ -20,3 +24,5 @@ editTaskDialog(projects);
 
 console.log(projects);
 localStorage.setItem("projects", JSON.stringify(projects));
+
+// localStorage.removeItem("projects");
