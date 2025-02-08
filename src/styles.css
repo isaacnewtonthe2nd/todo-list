@@ -56,6 +56,9 @@
   isolation: isolate;
 }
  
+/* * {
+  outline: 2px solid red;
+} */
  
 /* *************************************** SIDEBAR ******************************************** */
 
@@ -215,6 +218,8 @@ input[type="checkbox"] {
   gap: 1rem;
   padding-left: 1rem;
   margin-top: 3rem;
+  width: 13vw;
+  cursor: pointer;
 }
 
 .project-delete-div {

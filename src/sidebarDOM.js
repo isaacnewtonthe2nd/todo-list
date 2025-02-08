@@ -1,31 +1,15 @@
-import { ProjectLocalStorage } from "./local-storage";
 import { renderMainContainer } from "./mainContainerDOM";
 
-export function renderSidebar (projects, tasks) {
+export function renderSidebar (inputProject) {
   const main = document.querySelector('#main');
 
   // Dialog Selectors
   const projectDialog = document.querySelector('#add-project-dialog');
-  const projectDialogForm = document.querySelector('#add-project-form');
-  const closeProjectDialog = document.querySelector('#project-dialog-close');
-
-  closeProjectDialog.addEventListener('click', (event) => { //Close Project Dialog
-    event.preventDefault();
-    projectDialog.close();
-  });
-
-  const taskDialog = document.querySelector('#add-task-dialog');
-  const taskDialogForm = document.querySelector('#add-task-form');
-  const closeTaskDialog = document.querySelector('#task-dialog-close');
-
-  closeTaskDialog.addEventListener('click', (event) => { //Close Task Dialog
-    event.preventDefault();
-    taskDialog.close();
-  })
 
   //Side Bar Creation
 
   const sideContainer = document.querySelector('#side-cont');
+  sideContainer.textContent = '';
 
   // Logo Creation
 
@@ -42,7 +26,7 @@ export function renderSidebar (projects, tasks) {
   const firstSetOfButtons = document.createElement('div');
   firstSetOfButtons.classList.add('add-item');
 
-  const buttonsSetOneArr = ['addProject', 'addTask', 'today', 'allTasks'];
+  const buttonsSetOneArr = ['addProject', 'today', 'allTasks'];
   for (let i = 0; i < buttonsSetOneArr.length; i++) {
     if (buttonsSetOneArr[i] === 'addProject') { // Creates Add Project Button.
       const addProjectButton = document.createElement('div');
@@ -59,21 +43,6 @@ export function renderSidebar (projects, tasks) {
       });
       firstSetOfButtons.appendChild(addProjectButton);
 
-    } else if (buttonsSetOneArr[i] === 'addTask') { // Creates unique Add Task Button
-      const addTaskButton = document.createElement('div');
-      addTaskButton.classList.add('add-button');
-      const svgDiv = document.createElement('div');
-      svgDiv.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" height="25" width="25" viewBox="0 0 24 24"><title>plus-circle</title><path d="M17,13H13V17H11V13H7V11H11V7H13V11H17M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" fill="#ff7c48"/></svg>`;
-      addTaskButton.appendChild(svgDiv);
-      const addTaskText = document.createElement('p');
-      addTaskText.textContent = 'Add Task';
-      addTaskButton.appendChild(addTaskText);
-      // Add Task Button Event Listener
-      addTaskButton.addEventListener('click', () => { //Open task dialog
-        taskDialog.showModal();
-      })
-      firstSetOfButtons.appendChild(addTaskButton);
-
     } else if (buttonsSetOneArr[i] === 'today') { // Creates Today Button
       const todayBtn = document.createElement('div');
       todayBtn.classList.add('today')
@@ -84,9 +53,8 @@ export function renderSidebar (projects, tasks) {
       todayText.textContent = 'Today';
       todayBtn.appendChild(todayText);
       todayBtn.addEventListener('click', () => { //Render tasks due in the current day
-        renderMainContainer().getTodayDisplay(tasks);
+        renderMainContainer().getTodayDisplay(inputProject);
       })
-
       firstSetOfButtons.appendChild(todayBtn);
 
     } else if (buttonsSetOneArr[i] === 'allTasks') { // Creates All Tasks Button
@@ -99,7 +67,7 @@ export function renderSidebar (projects, tasks) {
       allTasksText.textContent = 'All Tasks';
       allTasksBtn.appendChild(allTasksText);
       allTasksBtn.addEventListener('click', () => {
-        renderMainContainer().getAllTasksDisplay(tasks);
+        renderMainContainer().getAllTasksDisplay(inputProject);
       })
       firstSetOfButtons.appendChild(allTasksBtn);
     }
@@ -116,11 +84,11 @@ export function renderSidebar (projects, tasks) {
 
   const projectListDiv = document.createElement('div');
   projectListDiv.classList.add('projects-list');
-  for (let i = 0; i < projects.length; i++) {
+  for (let i = 0; i < inputProject.length; i++) {
     const project = document.createElement('p');
-    project.textContent = projects[i].title;
+    project.textContent = inputProject[i].title;
     project.addEventListener('click', () => {  //Render projects content
-      renderMainContainer().getProjectDisplay(projects[i]);
+      renderMainContainer().getProjectDisplay(inputProject, inputProject[i], i);
     })
     projectListDiv.appendChild(project);
   } 
