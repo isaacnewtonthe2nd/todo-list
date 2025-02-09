@@ -1,9 +1,8 @@
-import { format } from "date-fns";
-import { renderSidebar } from "./sidebarDOM";
-import { ProjectsFactory } from "./project";
+import { format } from 'date-fns';
+import { renderSidebar } from './sidebarDOM';
+import { ProjectsFactory } from './project';
 
-
-export function renderMainContainer () {
+export function renderMainContainer() {
   const main = document.querySelector('#main');
 
   const mainContainer = document.querySelector('#main-cont');
@@ -22,9 +21,8 @@ export function renderMainContainer () {
   const projectSubscript = document.querySelector('#proj-subscript');
   const tasksSubscript = document.querySelector('#task-subscript');
 
-
   // T O D A Y   B U T T O N   D I S P L A Y
-  const getTodayDisplay = (inputProjects) => {  
+  const getTodayDisplay = (inputProjects) => {
     mainContainer.textContent = '';
 
     // Today Header
@@ -34,7 +32,7 @@ export function renderMainContainer () {
     const todayHeaderText = document.createElement('p');
     todayHeaderText.textContent = 'Today';
     todayHeader.appendChild(todayHeaderText);
-    mainContainer.appendChild(todayHeader); 
+    mainContainer.appendChild(todayHeader);
 
     // Displays the Tasks due during the current day
     const tasksContainer = document.createElement('div');
@@ -42,13 +40,16 @@ export function renderMainContainer () {
 
     for (let i = 0; i < inputProjects.length; i++) {
       for (let j = 0; j < inputProjects[i].taskArr.length; j++) {
-        if (format (new Date(), 'PPPP') === format (new Date(inputProjects[i].taskArr[j].dueDate), 'PPPP')) {
+        if (
+          format(new Date(), 'PPPP') ===
+          format(new Date(inputProjects[i].taskArr[j].dueDate), 'PPPP')
+        ) {
           const taskContainer = document.createElement('div');
           taskContainer.classList.add('task-container');
 
           const taskContent = document.createElement('div');
           taskContent.classList.add('task-content');
-          
+
           const taskCheckbox = document.createElement('input');
           taskCheckbox.setAttribute('type', 'checkbox');
           taskContent.appendChild(taskCheckbox);
@@ -58,27 +59,31 @@ export function renderMainContainer () {
           const taskTitle = document.createElement('p');
           taskTitle.textContent = inputProjects[i].taskArr[j].title;
 
-          if (inputProjects[i].taskArr[j].checked == true)  {
+          if (inputProjects[i].taskArr[j].checked == true) {
             taskTitle.classList.add('completed');
           }
 
           taskInfo.appendChild(taskTitle);
           const taskDescription = document.createElement('p');
           if (inputProjects[i].taskArr[j].description !== '') {
-            taskDescription.textContent = inputProjects[i].taskArr[j].description;
+            taskDescription.textContent =
+              inputProjects[i].taskArr[j].description;
             taskDescription.classList.add('date');
 
-            if (inputProjects[i].taskArr[j].checked == true)  {
+            if (inputProjects[i].taskArr[j].checked == true) {
               taskDescription.classList.add('completed');
             }
 
             taskInfo.appendChild(taskDescription);
           }
           const taskDate = document.createElement('p');
-          taskDate.textContent = format (new Date(`${inputProjects[i].taskArr[j].dueDate}`), 'PPPP');
+          taskDate.textContent = format(
+            new Date(`${inputProjects[i].taskArr[j].dueDate}`),
+            'PPPP',
+          );
           taskDate.classList.add('date');
 
-          if (inputProjects[i].taskArr[j].checked == true)  {
+          if (inputProjects[i].taskArr[j].checked == true) {
             taskDate.classList.add('completed');
           }
 
@@ -93,22 +98,25 @@ export function renderMainContainer () {
               taskCheckbox.setAttribute('checked', '');
               // projectTaskLocation.checked = true;
               renderMainContainer().getTodayDisplay(inputProjects);
-              localStorage.setItem("projects", JSON.stringify(inputProjects));
+              localStorage.setItem('projects', JSON.stringify(inputProjects));
             } else {
               inputProjects[i].taskArr[j].checked = false;
               taskCheckbox.removeAttribute('checked');
               // projectTaskLocation.checked = true;
               renderMainContainer().getTodayDisplay(inputProjects);
-              localStorage.setItem("projects", JSON.stringify(inputProjects));
+              localStorage.setItem('projects', JSON.stringify(inputProjects));
             }
             console.log(inputProjects[i].taskArr[j].checked);
-          })
+          });
 
           //Lets You Edit the Task Content
           const editContent = document.createElement('div');
           editContent.classList.add('edit-content');
 
-          if (inputProjects[i].taskArr[j].priority === 'p1' || inputProjects[i].taskArr[j].priority === 'P1') {
+          if (
+            inputProjects[i].taskArr[j].priority === 'p1' ||
+            inputProjects[i].taskArr[j].priority === 'P1'
+          ) {
             const priorityIcon = document.createElement('div');
             priorityIcon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" height="22" width="22" viewBox="0 0 24 24"><title>flag</title><path d="M14.4,6L14,4H5V21H7V14H12.6L13,16H20V6H14.4Z" fill="#ff7c48"/></svg>`;
             editContent.appendChild(priorityIcon);
@@ -119,8 +127,7 @@ export function renderMainContainer () {
         }
       }
     }
-  }
-
+  };
 
   // A L L   T A S K S   B U T T O N   D I S P L A Y
   const getAllTasksDisplay = (inputProjects) => {
@@ -133,7 +140,7 @@ export function renderMainContainer () {
     const allTasksHeaderText = document.createElement('p');
     allTasksHeaderText.textContent = 'All Tasks';
     allTasksHeader.appendChild(allTasksHeaderText);
-    mainContainer.appendChild(allTasksHeader); 
+    mainContainer.appendChild(allTasksHeader);
 
     // Displays all Tasks from all projects
     const tasksContainer = document.createElement('div');
@@ -155,7 +162,7 @@ export function renderMainContainer () {
         const taskTitle = document.createElement('p');
         taskTitle.textContent = inputProjects[i].taskArr[j].title;
 
-        if (inputProjects[i].taskArr[j].checked == true)  {
+        if (inputProjects[i].taskArr[j].checked == true) {
           taskTitle.classList.add('completed');
         }
 
@@ -165,16 +172,19 @@ export function renderMainContainer () {
           taskDescription.textContent = inputProjects[i].taskArr[j].description;
           taskDescription.classList.add('date');
 
-          if (inputProjects[i].taskArr[j].checked == true)  {
+          if (inputProjects[i].taskArr[j].checked == true) {
             taskDescription.classList.add('completed');
           }
 
           taskInfo.appendChild(taskDescription);
         }
         const taskDate = document.createElement('p');
-        taskDate.textContent = format (new Date(inputProjects[i].taskArr[j].dueDate), 'PPPP');
+        taskDate.textContent = format(
+          new Date(inputProjects[i].taskArr[j].dueDate),
+          'PPPP',
+        );
         taskDate.classList.add('date');
-        if (inputProjects[i].taskArr[j].checked == true)  {
+        if (inputProjects[i].taskArr[j].checked == true) {
           taskDate.classList.add('completed');
         }
         taskInfo.appendChild(taskDate);
@@ -185,13 +195,13 @@ export function renderMainContainer () {
           if (inputProjects[i].taskArr[j].checked == false) {
             inputProjects[i].taskArr[j].checked = true;
             renderMainContainer().getAllTasksDisplay(inputProjects);
-            localStorage.setItem("projects", JSON.stringify(inputProjects));
+            localStorage.setItem('projects', JSON.stringify(inputProjects));
           } else {
             inputProjects[i].taskArr[j].checked = false;
             renderMainContainer().getAllTasksDisplay(inputProjects);
-            localStorage.setItem("projects", JSON.stringify(inputProjects));
+            localStorage.setItem('projects', JSON.stringify(inputProjects));
           }
-        })
+        });
 
         //Lets You Edit the Task Content
         const editContent = document.createElement('div');
@@ -202,13 +212,14 @@ export function renderMainContainer () {
 
         editIcon.addEventListener('click', () => {
           editTaskTitle.value = `${inputProjects[i].taskArr[j].title}`;
-          editTaskDescription.textContent = inputProjects[i].taskArr[j].description;
+          editTaskDescription.textContent =
+            inputProjects[i].taskArr[j].description;
           editTaskDueDate.value = `${inputProjects[i].taskArr[j].dueDate}`;
           editTaskPriority.value = `${inputProjects[i].taskArr[j].priority}`;
           projectSubscript.value = `${i}`;
           tasksSubscript.value = `${j}`;
           taskDialog.showModal();
-        })
+        });
 
         editContent.appendChild(editIcon);
 
@@ -219,13 +230,16 @@ export function renderMainContainer () {
 
         deleteIcon.addEventListener('click', () => {
           ProjectsFactory(inputProjects).removeTask(inputProjects[i], j);
-          localStorage.setItem("projects", JSON.stringify(inputProjects));
+          localStorage.setItem('projects', JSON.stringify(inputProjects));
           renderMainContainer().getAllTasksDisplay(inputProjects);
         });
 
         editContent.appendChild(deleteIcon);
 
-        if (inputProjects[i].taskArr[j].priority === 'p1' || inputProjects[i].taskArr[j].priority === 'P1') {
+        if (
+          inputProjects[i].taskArr[j].priority === 'p1' ||
+          inputProjects[i].taskArr[j].priority === 'P1'
+        ) {
           const priorityIcon = document.createElement('div');
           priorityIcon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" height="22" width="22" viewBox="0 0 24 24"><title>flag</title><path d="M14.4,6L14,4H5V21H7V14H12.6L13,16H20V6H14.4Z" fill="#ff7c48"/></svg>`;
           editContent.appendChild(priorityIcon);
@@ -235,8 +249,7 @@ export function renderMainContainer () {
         mainContainer.appendChild(tasksContainer);
       }
     }
-  }
-
+  };
 
   // M Y    P R O J E C T S   B U T T O N   D I S P L A Y
   const getProjectDisplay = (inputProjects, project, index) => {
@@ -248,13 +261,13 @@ export function renderMainContainer () {
     const projectHeaderText = document.createElement('p');
     projectHeaderText.textContent = project.title;
     projectHeader.appendChild(projectHeaderText);
-    mainContainer.appendChild(projectHeader); 
+    mainContainer.appendChild(projectHeader);
 
     // Displays the Tasks for each Project
     const tasksContainer = document.createElement('div');
     tasksContainer.classList.add('tasks-container');
 
-    for (let i = 0; i < (project.taskArr).length; i++) {
+    for (let i = 0; i < project.taskArr.length; i++) {
       const taskContainer = document.createElement('div');
       taskContainer.classList.add('task-container');
 
@@ -269,7 +282,7 @@ export function renderMainContainer () {
       const taskTitle = document.createElement('p');
       taskTitle.textContent = project.taskArr[i].title;
 
-      if (project.taskArr[i].checked == true)  {
+      if (project.taskArr[i].checked == true) {
         taskTitle.classList.add('completed');
       }
 
@@ -279,17 +292,20 @@ export function renderMainContainer () {
         taskDescription.textContent = project.taskArr[i].description;
         taskDescription.classList.add('date');
 
-        if (project.taskArr[i].checked == true)  {
+        if (project.taskArr[i].checked == true) {
           taskDescription.classList.add('completed');
         }
 
         taskInfo.appendChild(taskDescription);
       }
       const taskDate = document.createElement('p');
-      taskDate.textContent = format (new Date(`${project.taskArr[i].dueDate}`), 'PPPP');
+      taskDate.textContent = format(
+        new Date(`${project.taskArr[i].dueDate}`),
+        'PPPP',
+      );
       taskDate.classList.add('date');
 
-      if (project.taskArr[i].checked == true)  {
+      if (project.taskArr[i].checked == true) {
         taskDate.classList.add('completed');
       }
 
@@ -300,14 +316,22 @@ export function renderMainContainer () {
       taskCheckbox.addEventListener('change', () => {
         if (project.taskArr[i].checked == false) {
           project.taskArr[i].checked = true;
-          renderMainContainer().getProjectDisplay(inputProjects, project, index);
-          localStorage.setItem("projects", JSON.stringify(inputProjects));
+          renderMainContainer().getProjectDisplay(
+            inputProjects,
+            project,
+            index,
+          );
+          localStorage.setItem('projects', JSON.stringify(inputProjects));
         } else {
           project.taskArr[i].checked = false;
-          renderMainContainer().getProjectDisplay(inputProjects, project, index);
-          localStorage.setItem("projects", JSON.stringify(inputProjects));
+          renderMainContainer().getProjectDisplay(
+            inputProjects,
+            project,
+            index,
+          );
+          localStorage.setItem('projects', JSON.stringify(inputProjects));
         }
-      })
+      });
 
       //Lets You Edit the Task Content
       const editContent = document.createElement('div');
@@ -324,7 +348,7 @@ export function renderMainContainer () {
         projectSubscript.value = `${project.title}`;
         tasksSubscript.value = `${i}`;
         taskDialog.showModal();
-      })
+      });
       editContent.appendChild(editIcon);
 
       // Delete task button
@@ -334,13 +358,16 @@ export function renderMainContainer () {
 
       deleteIcon.addEventListener('click', () => {
         ProjectsFactory(inputProjects).removeTask(project, i);
-          localStorage.setItem("projects", JSON.stringify(inputProjects));
-          renderMainContainer().getProjectDisplay(inputProjects, project, index);
-      })
+        localStorage.setItem('projects', JSON.stringify(inputProjects));
+        renderMainContainer().getProjectDisplay(inputProjects, project, index);
+      });
 
       editContent.appendChild(deleteIcon);
 
-      if (project.taskArr[i].priority === 'p1' || project.taskArr[i].priority === 'P1') {
+      if (
+        project.taskArr[i].priority === 'p1' ||
+        project.taskArr[i].priority === 'P1'
+      ) {
         const priorityIcon = document.createElement('div');
         priorityIcon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" height="22" width="22" viewBox="0 0 24 24"><title>flag</title><path d="M14.4,6L14,4H5V21H7V14H12.6L13,16H20V6H14.4Z" fill="#ff7c48"/></svg>`;
         editContent.appendChild(priorityIcon);
@@ -366,7 +393,7 @@ export function renderMainContainer () {
       addProjectSubscript.value = index;
       console.log(addProjectSubscript.value);
       addTaskDialog.showModal();
-    })
+    });
 
     mainContainer.appendChild(addTaskDiv);
 
@@ -383,15 +410,14 @@ export function renderMainContainer () {
     projectDeleteButtonDiv.appendChild(projectDeleteText);
     projectDeleteButtonDiv.addEventListener('click', () => {
       inputProjects.splice(index, 1);
-      localStorage.setItem("projects", JSON.stringify(inputProjects));
+      localStorage.setItem('projects', JSON.stringify(inputProjects));
       renderSidebar(inputProjects);
       renderMainContainer().getAllTasksDisplay(inputProjects);
-    })
+    });
     mainContainer.appendChild(projectDeleteButtonDiv);
-
-  }
+  };
 
   main.appendChild(mainContainer);
 
-  return { getTodayDisplay, getProjectDisplay, getAllTasksDisplay }
+  return { getTodayDisplay, getProjectDisplay, getAllTasksDisplay };
 }

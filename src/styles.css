@@ -1,76 +1,93 @@
 /* Josh Comeau CSS Reset */
 
-
 /* 1. Use a more-intuitive box-sizing model */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
- }
- 
- 
- /* 2. Remove default margin */
- * {
+}
+
+/* 2. Remove default margin */
+* {
   margin: 0;
- }
- 
- 
- body {
+}
+
+body {
   /* 3. Add accessible line-height */
   line-height: 1.5;
   /* 4. Improve text rendering */
   -webkit-font-smoothing: antialiased;
- }
- 
- 
- /* 5. Improve media defaults */
- img, picture, video, canvas, svg {
+}
+
+/* 5. Improve media defaults */
+img,
+picture,
+video,
+canvas,
+svg {
   display: block;
   max-width: 100%;
- }
- 
- 
- /* 6. Inherit fonts for form controls */
- input, button, textarea, select {
+}
+
+/* 6. Inherit fonts for form controls */
+input,
+button,
+textarea,
+select {
   font: inherit;
- }
- 
- 
- /* 7. Avoid text overflows */
- p, h1, h2, h3, h4, h5, h6 {
+}
+
+/* 7. Avoid text overflows */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   overflow-wrap: break-word;
- }
- 
- 
- /* 8. Improve line wrapping */
- p {
+}
+
+/* 8. Improve line wrapping */
+p {
   text-wrap: pretty;
- }
- h1, h2, h3, h4, h5, h6 {
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   text-wrap: balance;
- }
- 
- 
- /*
+}
+
+/*
   9. Create a root stacking context
  */
- #root, #__next {
+#root,
+#__next {
   isolation: isolate;
 }
- 
+
 /* * {
   outline: 2px solid red;
 } */
- 
+
 /* *************************************** SIDEBAR ******************************************** */
 
-.side-container, .projects, .projects-list {
+.side-container,
+.projects,
+.projects-list {
   display: flex;
   flex-direction: column;
 }
 
-.logo, .projects > p, .main-cont-header {
+.logo,
+.projects > p,
+.main-cont-header {
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
- 
+
 .content {
   display: grid;
   grid-auto-flow: row;
@@ -78,16 +95,14 @@
   height: 100vh;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
- 
- 
+
 .side-container {
   background-color: #008080;
   padding: 2rem 2rem;
   gap: 2rem;
   color: black;
 }
- 
- 
+
 .logo {
   font-size: 1.6rem;
   font-weight: bold;
@@ -96,7 +111,7 @@
 .add-item {
   width: 10vw;
 }
- 
+
 .add-item > div {
   display: flex;
   align-items: center;
@@ -104,44 +119,38 @@
   gap: 0.6rem;
   font-size: 1.1rem;
 }
- 
- 
+
 .add-button {
   color: #ff7c48;
   cursor: pointer;
 }
 
-.today, .all-tasks {
+.today,
+.all-tasks {
   cursor: pointer;
 }
- 
- 
+
 .projects {
   gap: 0.8rem;
 }
- 
- 
+
 .projects > p {
   font-size: 1.4rem;
   font-weight: 600;
 }
- 
- 
+
 .projects-list {
   gap: 0.6rem;
   font-size: 1.1rem;
   cursor: pointer;
 }
- 
- 
-
 
 /* *************************************** Main Container ******************************************** */
 
 .main-container {
-  background-color: #faf3dd ;
+  background-color: #faf3dd;
   padding: 4rem;
-} 
+}
 
 .main-cont-header {
   font-size: 2rem;
@@ -166,7 +175,7 @@
   gap: 1rem;
 }
 
-input[type="checkbox"] {
+input[type='checkbox'] {
   width: 1rem;
   cursor: pointer;
 }
@@ -193,7 +202,7 @@ input[type="checkbox"] {
 }
 
 .task-header {
-  background-color: #4682B4;  /* #fff0c8 */
+  background-color: #4682b4; /* #fff0c8 */
   padding: 0.5rem 5px;
   border: 2px solid rgb(144, 144, 144);
 }
@@ -210,7 +219,8 @@ input[type="checkbox"] {
   margin-bottom: 1rem;
 }
 
-.add-task-div, .project-delete-div {
+.add-task-div,
+.project-delete-div {
   font-size: 1.1rem;
   font-weight: 400;
   display: flex;
@@ -232,7 +242,8 @@ input[type="checkbox"] {
 
 /* *************************************** Dialogs ******************************************** */
 
-.add-project-class, .add-task-class {
+.add-project-class,
+.add-task-class {
   margin-left: calc(90vw - 50vw);
   /* border: 2px solid #ff7c48; */
   background-color: #008080;
@@ -240,13 +251,15 @@ input[type="checkbox"] {
   padding: 2rem;
 }
 
-.add-project-class > form, .add-task-class > form {
+.add-project-class > form,
+.add-task-class > form {
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
 }
 
-.project-input-label, .task-input-label {
+.project-input-label,
+.task-input-label {
   display: block;
   margin-bottom: 0.2rem;
 }
@@ -281,17 +294,16 @@ textarea {
   background: #faf3dd;
 }
 
-input:focus, textarea:focus {
+input:focus,
+textarea:focus {
   border: none;
   outline: none;
 }
 
 button {
-  background-color: #4682B4;
+  background-color: #4682b4;
   color: #faf3dd;
   border: 2px solid #faf3dd;
   width: 7rem;
   cursor: pointer;
 }
-
-

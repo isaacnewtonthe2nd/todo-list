@@ -83,11 +83,12 @@ export function renderSidebar (inputProject) {
   projectsDivContainer.appendChild(projectsDivText);
 
   const projectListDiv = document.createElement('div');
-  projectListDiv.classList.add('projects-list');
+  projectListDiv.classList.add("projects-list");
   for (let i = 0; i < inputProject.length; i++) {
     const project = document.createElement('p');
     project.textContent = inputProject[i].title;
-    project.addEventListener('click', () => {  //Render projects content
+    project.addEventListener("click", () => {
+      //Render projects content
       renderMainContainer().getProjectDisplay(inputProject, inputProject[i], i);
     })
     projectListDiv.appendChild(project);

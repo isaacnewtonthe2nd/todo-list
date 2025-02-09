@@ -1,98 +1,178 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ToDo List</title>
-</head>
-<body>
-  <div id="main" class="content">
-    <div id="side-cont" class="side-container"></div>
-    <div id="main-cont" class="main-container"></div>
-  </div>
-  
-  <dialog id="add-project-dialog" class="add-project-class">
-    <form action="" method="dialog" id="add-project-form">
-      <div>
-        <label for="project-title" class="project-input-label">What do you plan to accomplish?</label>
-        <input type="text" id="project-title" name="title-of-project" placeholder="Kitchen Remodelling" class="project-input" required>
-      </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ToDo List</title>
+  </head>
+  <body>
+    <div id="main" class="content">
+      <div id="side-cont" class="side-container"></div>
+      <div id="main-cont" class="main-container"></div>
+    </div>
 
-      <div class="add-project-buttons">
-        <button type="submit">Let's Do it!</button>
-        <button id="project-dialog-close">Never mind</button>
-      </div>
-    </form>
-  </dialog>
+    <dialog id="add-project-dialog" class="add-project-class">
+      <form action="" method="dialog" id="add-project-form">
+        <div>
+          <label for="project-title" class="project-input-label"
+            >What do you plan to accomplish?</label
+          >
+          <input
+            type="text"
+            id="project-title"
+            name="title-of-project"
+            placeholder="Kitchen Remodelling"
+            class="project-input"
+            required
+          />
+        </div>
 
-  <dialog id="add-task-dialog" class="add-task-class">
-    <form action="" method="dialog" id="add-task-form">
-      <div>
-        <label for="task-title" class="task-input-label">Name your goal</label>
-        <input type="text" id="task-title" name="title-of-task" placeholder="Go to the gym" required>
-      </div>
+        <div class="add-project-buttons">
+          <button type="submit">Let's Do it!</button>
+          <button id="project-dialog-close">Never mind</button>
+        </div>
+      </form>
+    </dialog>
 
-      <div>
-        <label for="task-description" class="task-input-label">Notes for self</label>
-        <textarea name="description-of-task" id="task-description" placeholder="Get up at 7am" rows="5" cols="30"></textarea>
-      </div>
+    <dialog id="add-task-dialog" class="add-task-class">
+      <form action="" method="dialog" id="add-task-form">
+        <div>
+          <label for="task-title" class="task-input-label"
+            >Name your goal</label
+          >
+          <input
+            type="text"
+            id="task-title"
+            name="title-of-task"
+            placeholder="Go to the gym"
+            required
+          />
+        </div>
 
-      <div>
-        <label for="task-date" class="task-input-label">Due Date</label>
-        <input type="text" id="task-date" name="dueDate-of-task" placeholder="05-02-2025" pattern="(0[1-9]|1[1,2])(\/|-)(0[1-9]|[12][0-9]|3[01])(\/|-)(19|20)\d{2}" required>
-      </div>
+        <div>
+          <label for="task-description" class="task-input-label"
+            >Notes for self</label
+          >
+          <textarea
+            name="description-of-task"
+            id="task-description"
+            placeholder="Get up at 7am"
+            rows="5"
+            cols="30"
+          ></textarea>
+        </div>
 
-      <div>
-        <label for="task-priority" class="task-input-label">Priority - P1</label>
-        <input type="text" id="task-priority" name="priority-of-task" placeholder="P1" pattern="[pP]1">
-      </div>
+        <div>
+          <label for="task-date" class="task-input-label">Due Date</label>
+          <input
+            type="text"
+            id="task-date"
+            name="dueDate-of-task"
+            placeholder="05-02-2025"
+            pattern="(0[1-9]|1[1,2])(\/|-)(0[1-9]|[12][0-9]|3[01])(\/|-)(19|20)\d{2}"
+            required
+          />
+        </div>
 
-      <div>
-        <input type="text" id="add-proj-subscript" name="id" value="" hidden>
-      </div>
+        <div>
+          <label for="task-priority" class="task-input-label"
+            >Priority - P1</label
+          >
+          <input
+            type="text"
+            id="task-priority"
+            name="priority-of-task"
+            placeholder="P1"
+            pattern="[pP]1"
+          />
+        </div>
 
-      <div class="add-task-buttons">
-        <button type="submit">Let's Go!</button>
-        <button id="task-dialog-close">Maybe Later</button>
-      </div>
-    </form>
-  </dialog>
+        <div>
+          <input
+            type="text"
+            id="add-proj-subscript"
+            name="id"
+            value=""
+            hidden
+          />
+        </div>
 
-  <dialog id="edit-task-dialog" class="add-task-class">
-    <form action="" method="dialog" id="edit-task-form">
-      <div>
-        <label for="edit-task-title" class="task-input-label">Name your goal</label>
-        <input type="text" id="edit-task-title" name="title-of-task" placeholder="Go to the gym" value="" required>
-      </div>
+        <div class="add-task-buttons">
+          <button type="submit">Let's Go!</button>
+          <button id="task-dialog-close">Maybe Later</button>
+        </div>
+      </form>
+    </dialog>
 
-      <div>
-        <label for="edit-task-description" class="task-input-label">Notes for self</label>
-        <textarea name="description-of-task" id="edit-task-description" placeholder="Get up at 7am" rows="5" cols="30"></textarea>
-      </div>
+    <dialog id="edit-task-dialog" class="add-task-class">
+      <form action="" method="dialog" id="edit-task-form">
+        <div>
+          <label for="edit-task-title" class="task-input-label"
+            >Name your goal</label
+          >
+          <input
+            type="text"
+            id="edit-task-title"
+            name="title-of-task"
+            placeholder="Go to the gym"
+            value=""
+            required
+          />
+        </div>
 
-      <div>
-        <label for="edit-task-date" class="task-input-label">Due Date</label>
-        <input type="text" id="edit-task-date" name="dueDate-of-task" placeholder="05-02-2025" pattern="(0[1-9]|1[1,2])(\/|-)(0[1-9]|[12][0-9]|3[01])(\/|-)(19|20)\d{2}" value="" required>
-      </div>
+        <div>
+          <label for="edit-task-description" class="task-input-label"
+            >Notes for self</label
+          >
+          <textarea
+            name="description-of-task"
+            id="edit-task-description"
+            placeholder="Get up at 7am"
+            rows="5"
+            cols="30"
+          ></textarea>
+        </div>
 
-      <div>
-        <label for="edit-task-priority" class="task-input-label">Priority - P1</label>
-        <input type="text" id="edit-task-priority" name="priority-of-task" placeholder="P1" pattern="[pP]1" value="">
-      </div>
+        <div>
+          <label for="edit-task-date" class="task-input-label">Due Date</label>
+          <input
+            type="text"
+            id="edit-task-date"
+            name="dueDate-of-task"
+            placeholder="05-02-2025"
+            pattern="(0[1-9]|1[1,2])(\/|-)(0[1-9]|[12][0-9]|3[01])(\/|-)(19|20)\d{2}"
+            value=""
+            required
+          />
+        </div>
 
-      <div>
-        <input type="text" id="proj-subscript" name="id" value="" hidden>
-      </div>
+        <div>
+          <label for="edit-task-priority" class="task-input-label"
+            >Priority - P1</label
+          >
+          <input
+            type="text"
+            id="edit-task-priority"
+            name="priority-of-task"
+            placeholder="P1"
+            pattern="[pP]1"
+            value=""
+          />
+        </div>
 
-      <div>
-        <input type="text" id="task-subscript" name="id" value="" hidden>
-      </div>
+        <div>
+          <input type="text" id="proj-subscript" name="id" value="" hidden />
+        </div>
 
-      <div class="add-task-buttons">
-        <button type="submit">Let's Go!</button>
-        <button id="edit-task-dialog-close">Maybe Later</button>
-      </div>
-    </form>
-  </dialog>
-</body>
+        <div>
+          <input type="text" id="task-subscript" name="id" value="" hidden />
+        </div>
+
+        <div class="add-task-buttons">
+          <button type="submit">Let's Go!</button>
+          <button id="edit-task-dialog-close">Maybe Later</button>
+        </div>
+      </form>
+    </dialog>
+  </body>
 </html>
